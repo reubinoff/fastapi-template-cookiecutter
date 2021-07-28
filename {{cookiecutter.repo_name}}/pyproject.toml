@@ -1,18 +1,18 @@
 [tool.poetry]
-name = "template_name"
+name = "{{cookiecutter.repo_name}}"
 version = "0.0.0"
-description = "template_name"
+description = "{{cookiecutter.repo_name}}"
 authors = ["OwnBackup <yehuda@ownbackup.com>"]
 license = "MIT"
 readme = "README.rst"
-homepage = "https://github.com/unused/template_name"
-repository = "https://github.com/unused/template_name"
-documentation = "https://template_name.readthedocs.io"
+homepage = "https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.repo_name}}"
+repository = "https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.repo_name}}"
+documentation = "https://{{cookiecutter.repo_name}}.readthedocs.io"
 classifiers = ["Programming Language :: Python :: 3.8"]
 
 
 [tool.poetry.urls]
-Changelog = "https://github.com/unused/template_name/releases"
+Changelog = "https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.repo_name}}/releases"
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -82,14 +82,14 @@ it = "^1.0.0"
 docutils-stubs = "^0.0.21"
 
 [tool.poetry.scripts]
-template_name = "template_name.__main__:main"
+{{cookiecutter.repo_name}} = "{{cookiecutter.repo_name}}.__main__:main"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
 
 [tool.coverage.run]
 branch = true
-source = ["template_name"]
+source = ["src/{{cookiecutter.repo_name}}"]
 
 [tool.coverage.report]
 show_missing = true

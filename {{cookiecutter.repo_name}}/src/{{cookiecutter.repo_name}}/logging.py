@@ -4,7 +4,7 @@ import yaml
 import os
 
 
-from fastapi_best_practice.config import configuration
+from {{cookiecutter.repo_name}}.config import configuration
 from fastapi.logger import logger
 
 
