@@ -15,7 +15,7 @@ classifiers = ["Programming Language :: Python :: 3.8"]
 Changelog = "https://github.com/{{cookiecutter.github_user}}/{{cookiecutter.repo_name}}/releases"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.8.0"
 alembic = "^1.6.5"
 click = "^8.0.1"
 fastapi = "^0.66.0"
@@ -80,6 +80,8 @@ pylint-pytest = "^1.1.2"
 pylint = "^2.9.3"
 it = "^1.0.0"
 docutils-stubs = "^0.0.21"
+nox = "^2021.6.12"
+nox-poetry = "^0.8.6"
 
 [tool.poetry.scripts]
 {{cookiecutter.repo_name}} = "{{cookiecutter.repo_name}}.__main__:main"
