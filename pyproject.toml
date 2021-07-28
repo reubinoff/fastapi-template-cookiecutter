@@ -24,7 +24,7 @@ coverage = {extras = ["toml"], version = "*"}
 safety = "*"
 typeguard = "*"
 xdoctest = {extras = ["colors"], version = "^0.15.4"}
-sphinx = "^4.0.2"
+sphinx = "^4.1.2"
 sphinx-autobuild = "^2021.3.14"
 pre-commit = "*"
 flake8 = "*"
