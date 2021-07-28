@@ -3,4 +3,4 @@
 poetry install
 poetry update
 poetry env use 3.8
-nox -rs pre-commit
+poetry run nox -rs pre-commit
