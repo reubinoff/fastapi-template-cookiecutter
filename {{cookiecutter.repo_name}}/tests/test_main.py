@@ -2,7 +2,7 @@
 """Test cases for the __main__ module."""
 import pytest
 from click.testing import CliRunner
-from template_name import __main__
+from {{cookiecutter.repo_name}} import __main__
 
 
 @pytest.fixture

@@ -1,2 +1,2 @@
 # -*- coding: utf-8 -*-
-"""Test suite for the template_name package."""
+"""Test suite for the {{cookiecutter.repo_name}} package."""

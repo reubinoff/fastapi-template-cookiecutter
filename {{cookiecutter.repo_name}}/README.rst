@@ -1,4 +1,4 @@
-template_name
+{{cookiecutter.repo_name}}
 ============
 
 |pre-commit| |Black|
@@ -44,4 +44,4 @@ This project was generated from `@cjolowicz`_'s `Hypermodern Python Cookiecutter
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _Hypermodern Python Cookiecutter: https://github.com/cjolowicz/cookiecutter-hypermodern-python
 .. github-only
-.. _Usage: https://template_name.readthedocs.io/en/latest/usage.html
+.. _Usage: https://{{cookiecutter.repo_name}}.readthedocs.io/en/latest/usage.html

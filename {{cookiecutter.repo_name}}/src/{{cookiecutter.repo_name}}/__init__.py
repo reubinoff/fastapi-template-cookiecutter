@@ -1,2 +1,2 @@
 # -*- coding: utf-8 -*-
-"""template_name."""
+"""{{cookiecutter.repo_name}}."""

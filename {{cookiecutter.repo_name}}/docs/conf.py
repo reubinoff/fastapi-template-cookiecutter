@@ -3,7 +3,7 @@
 from datetime import datetime
 
 
-project = "template_name"
+project = "{{cookiecutter.repo_name}}"
 author = "OwnBackup"
 copyright = f"{datetime.now().year}, {author}"
 extensions = ["sphinx.ext.autodoc", "sphinx.ext.napoleon", "sphinx_click", "sphinx_rtd_theme"]

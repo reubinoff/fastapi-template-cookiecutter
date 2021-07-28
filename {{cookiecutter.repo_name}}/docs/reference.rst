@@ -6,8 +6,8 @@ Reference
     :backlinks: none
 
 
-template_name.__main__
+{{cookiecutter.repo_name}}.__main__
 ---------------------
 
-.. automodule:: template_name.__main__
+.. automodule:: {{cookiecutter.repo_name}}.__main__
    :members:

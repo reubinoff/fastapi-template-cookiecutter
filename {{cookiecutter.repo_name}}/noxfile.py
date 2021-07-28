@@ -20,7 +20,7 @@ except ImportError:
     raise SystemExit(dedent(message))
 
 
-package = "template_name"
+package = "{{cookiecutter.repo_name}}"
 python_versions = ["3.8"]
 nox.needs_version = ">= 2021.6.6"
 nox.options.sessions = (

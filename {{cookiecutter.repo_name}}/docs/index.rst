@@ -9,4 +9,4 @@
 
    usage
    reference
-   Changelog <https://github.com/unused/template_name/releases>
+   Changelog <https://github.com/unused/{{cookiecutter.repo_name}}/releases>
