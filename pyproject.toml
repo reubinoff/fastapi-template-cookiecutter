@@ -1,0 +1,166 @@
+[tool.poetry]
+name = "template_name"
+version = "0.0.0"
+description = "template_name"
+authors = ["OwnBackup <yehuda@ownbackup.com>"]
+license = "MIT"
+readme = "README.rst"
+homepage = "https://github.com/unused/template_name"
+repository = "https://github.com/unused/template_name"
+documentation = "https://template_name.readthedocs.io"
+classifiers = ["Programming Language :: Python :: 3.8"]
+
+
+[tool.poetry.urls]
+Changelog = "https://github.com/unused/template_name/releases"
+
+[tool.poetry.dependencies]
+python = "^3.7.1"
+click = "^8.0.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+coverage = {extras = ["toml"], version = "*"}
+safety = "*"
+typeguard = "*"
+xdoctest = {extras = ["colors"], version = "^0.15.4"}
+sphinx = "^4.0.2"
+sphinx-autobuild = "^2021.3.14"
+pre-commit = "*"
+flake8 = "*"
+black = "*"
+flake8-bandit = "*"
+flake8-bugbear = "*"
+flake8-docstrings = "*"
+flake8-rst-docstrings = "*"
+pep8-naming = "*"
+darglint = "*"
+reorder-python-imports = "*"
+pre-commit-hooks = "*"
+sphinx-rtd-theme = "^0.5.2"
+sphinx-click = "^3.0.1"
+Pygments = "^2.9.0"
+flake8-blind-except = "*"
+flake8-variables-names = "*"
+flake8-builtins = "*"
+flake8-comprehensions = "*"
+flake8-logging-format = "*"
+flake8-deprecated = "*"
+flake8-mutable = "*"
+flakehell = "*"
+flake8-pylint = "*"
+pyupgrade = "*"
+interrogate = "*"
+blacken-docs = "*"
+docformatter = "*"
+sqlalchemy-stubs = "^0.4"
+mypy = "^0.910"
+pydantic = "^1.8.2"
+flake8-simplify = "^0.14.1"
+flake8-use-fstring = "^1.1"
+flake8-pytest = "^1.3"
+dlint = "^0.11.0"
+flake8-annotations = "^2.6.2"
+flake8-typing-imports = "^1.10.1"
+pylint-pytest = "^1.1.2"
+pylint = "^2.9.3"
+it = "^1.0.0"
+docutils-stubs = "^0.0.21"
+
+[tool.poetry.scripts]
+template_name = "template_name.__main__:main"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["template_name"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
+
+[tool.mypy]
+strict = true
+pretty = true
+show_column_numbers = true
+show_error_codes = true
+show_error_context = true
+plugins = ["pydantic.mypy", "sqlmypy"]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fields = true
+
+[[tool.mypy.overrides]]
+module = [ 'uvicorn' ]
+ignore_missing_imports = true
+
+[tool.flakehell]
+format = "grouped"
+max_line_length = 120
+show_source = true
+extended_default_ignore=[]  # add this
+accept_encodings = "utf-8"
+docstring-convention = "sphinx"
+max_complexity = 10
+statistics = false
+doctests = true
+exclude = [".git","dist",".mypy_cache",".nox","__pycache__",".github","docs/conf.py", "noxfile.py"]
+enable-extensions = "TC, TC1"  # or TC2
+min_python_version = "3.7.1"
+
+[tool.flakehell.plugins]
+# F541: f-string without any placeholders
+# S/B101: assert_used
+# D100: Missing docstring in public module
+# D104: Missing docstring in public package
+# D107: Missing docstring in __init__
+# D400: First line should end with a period
+# D401: First line should be in imperative mood; try rephrasing
+# D404: First word of the docstring should not be This
+# B008: Do not perform function calls in argument defaults -- not using due to fastapi Depends()
+# FS003: f-string missing prefix.
+# N818: error suffix in exception names (exceptions)
+# W503: line break before binary operator
+# W504: line break after binary operator
+# (PL)C0114: Missing module docstring (missing-module-docstring)
+# (PL)W1309: Using an f-string that does not have any interpolated variables
+# (PL)W0511: TODO in code
+# (PL)E0611: no-name-in-module - has issue with pydantic
+# (PL)R0903: Too few public methods
+# (PL)W0621: redefined-outer-name
+
+pyflakes = ["+*", "-F541"]
+dlint = ["+*"]
+flake8-darglint = ["+*", "-DAR101", "-DAR201"]
+flake8-bandit = ["+*", "-S101"]
+flake8-annotations = ["-*"]
+flake8-docstrings = ["+*", "-D100", "-D104", "-D107", "-D400", "-D401", "-D404"]
+"flake8-*" = ["+*"]
+flake8-bugbear = ["+*", "-B008"]
+flake8-use-fstring = ["+*", "-FS003"]
+mccabe = ["+*"]
+"pep8-naming" = ["+*", "-N818"]
+pycodestyle = ["+*", "-W503", "-W504"]
+flake8-pylint-plugin = ["+*", "-PLC0114", "-PLW0511", "-PLW1309", "-PLE0611"]
+
+[tool.pylint.'MASTER']
+load-plugins = "pylint_pytest"
+
+#[tool.pytest.ini_options]
+#addopts = "--xdoctest"
+
+[tool.black]
+line-length = 120
+
+[tool.darglint]
+strictness = "long"
+docstring_style = "sphinx"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

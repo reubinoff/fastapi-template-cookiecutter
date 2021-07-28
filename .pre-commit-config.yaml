@@ -1,0 +1,187 @@
+# to change:
+#     cd services/<service name>: update to dir name
+#     update template_name to dir name
+# add cd if there is a config file in the project directory that should be used
+
+repos:
+  - repo: local
+    hooks:
+      - id: black
+        name: black
+        entry: black --config services/template_name/pyproject.toml
+        files: "template_name/.*"
+        language: system
+        types: [python]
+        require_serial: true
+
+      - id: docformatter
+        name: docformatter
+        description: "Formats docstrings to follow PEP 257."
+        entry: docformatter
+        files: "template_name/.*"
+        args: [-i]
+        language: system
+        types: [python]
+
+      - id: check-added-large-files
+        name: Check for added large files
+        entry: check-added-large-files
+        files: "template_name/.*"
+        language: system
+
+      - id: check-toml
+        name: Check Toml
+        entry: check-toml
+        files: "template_name/.*"
+        language: system
+        types: [toml]
+
+      - id: check-yaml
+        name: Check Yaml
+        entry: check-yaml
+        files: "template_name/.*"
+        language: system
+        types: [yaml]
+
+      - id: end-of-file-fixer
+        name: Fix End of Files
+        entry: end-of-file-fixer
+        files: "template_name/.*"
+        language: system
+        types: [text]
+        stages: [commit, push, manual]
+
+      - id: reorder-python-imports
+        name: Reorder python imports
+        entry: reorder-python-imports
+        files: "template_name/.*"
+        language: system
+        types: [python]
+        args: ["--application-directories=.:services/template_name/src"]
+
+      - id: trailing-whitespace
+        name: Trim Trailing Whitespace
+        entry: trailing-whitespace-fixer
+        files: "template_name/.*"
+        language: system
+        types: [text]
+        stages: [commit, push, manual]
+
+      - id: debug-statement-hook
+        name: Check for debugger statements
+        entry: debug-statement-hook
+        files: "template_name/.*"
+        types: [python]
+        language: system
+
+      - id: check-merge-conflict
+        name: Check for merge conflicts
+        entry: check-merge-conflict
+        files: "template_name/.*"
+        language: system
+
+      - id: check-ast
+        name: Check AST
+        entry: check-ast
+        files: "template_name/.*"
+        types: [python]
+        language: system
+
+      - id: check-case-conflict
+        name: Check Case Conflict
+        entry: check-case-conflict
+        files: "template_name/.*"
+        types: [python]
+        language: system
+
+      - id: check-docstring-first
+        name: Check Docstrings first
+        entry: check-docstring-first
+        files: "template_name/.*"
+        types: [python]
+        language: system
+
+      - id: check-shebang-scripts-are-executable
+        name: Check Shebangs Executable
+        entry: check-shebang-scripts-are-executable
+        files: "template_name/.*"
+        types: [python]
+        language: system
+
+      - id: detect-private-key
+        name: Check Private Keys
+        entry: detect-private-key
+        files: "template_name/.*"
+        types: [python]
+        language: system
+
+      - id: fix-encoding-pragma
+        name: Fix encoding pragma
+        entry: fix-encoding-pragma
+        files: "template_name/.*"
+        types: [python]
+        language: system
+
+      - id: interrogate
+        name: interrogate
+        entry: interrogate -v
+        files: "template_name/.*"
+        types: [python]
+        exclude: tests/.*.py
+        language: system
+
+      - id: pyupgrade
+        name: pyupgrade
+        entry: pyupgrade
+        files: "template_name/.*"
+        types: [python]
+        language: system
+
+      - id: flakehell
+        name: flakehell
+        entry: bash -c 'cd services/template_name && flakehell lint ${@#*/*/}' --
+        files: "template_name/.*"
+        language: system
+        types: [python]
+        require_serial: true
+
+      - id: inspectortiger
+        name: inspectortiger
+        description: "Inspects your code"
+        entry: inspectortiger
+        files: "template_name/.*"
+        language: system
+        require_serial: true
+        types: [python]
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.3.0
+    hooks:
+      - id: prettier
+        files: "template_name/.*"
+
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.5.1 # Use the ref you want to point at
+    hooks:
+      - id: python-no-eval
+        name: python-no-eval
+        description: "A quick check for the `eval()` built-in function"
+        entry: '\beval\('
+        files: "template_name/.*"
+        language: pygrep
+        types: [python]
+
+      - id: python-no-log-warn
+        name: python-no-log-warn
+        description: "A quick check for the deprecated `.warn()` method of python loggers"
+        entry: '(?<!warnings)\.warn\('
+        files: "template_name/.*"
+        language: pygrep
+        types: [python]
+
+      - id: python-use-type-annotations
+        name: python-use-type-annotations not type comments
+        description: "Enforce that python3.6+ type annotations are used instead of type comments"
+        entry: "# type(?!: *ignore *($|#))"
+        files: "template_name/.*"
+        language: pygrep
+        types: [python]

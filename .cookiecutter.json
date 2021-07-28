@@ -1,0 +1,11 @@
+{
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "OwnBackup",
+  "email": "yehuda@ownbackup.com",
+  "friendly_name": "template_name",
+  "github_user": "unused",
+  "license": "MIT",
+  "package_name": "template_name",
+  "project_name": "template_name",
+  "version": "0.0.0"
+}
