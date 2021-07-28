@@ -63,7 +63,7 @@ dlint = "^0.11.0"
 flake8-annotations = "^2.6.2"
 flake8-typing-imports = "^1.10.1"
 pylint-pytest = "^1.1.2"
-pylint = "^2.9.3"
+pylint = "^2.9.5"
 it = "^1.0.0"
 docutils-stubs = "^0.0.21"
 
