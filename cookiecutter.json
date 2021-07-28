@@ -4,6 +4,6 @@
   "email": "yehuda@ownbackup.com",
   "github_user": "",
   "license": "MIT",
-  "repo_name": "{{cookiecutter.repo_name}}",
+  "repo_name": "template_name",
   "version": "0.0.0"
 }
