@@ -8,8 +8,8 @@ repos:
     hooks:
       - id: black
         name: black
-        entry: black --config services/{{cookiecutter.repo_name}}/pyproject.toml
-        files: "{{cookiecutter.repo_name}}/.*"
+        entry: black --config pyproject.toml
+        files: ""
         language: system
         types: [python]
         require_serial: true
@@ -18,7 +18,7 @@ repos:
         name: docformatter
         description: "Formats docstrings to follow PEP 257."
         entry: docformatter
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         args: [-i]
         language: system
         types: [python]
@@ -26,27 +26,27 @@ repos:
       - id: check-added-large-files
         name: Check for added large files
         entry: check-added-large-files
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         language: system
 
       - id: check-toml
         name: Check Toml
         entry: check-toml
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         language: system
         types: [toml]
 
       - id: check-yaml
         name: Check Yaml
         entry: check-yaml
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         language: system
         types: [yaml]
 
       - id: end-of-file-fixer
         name: Fix End of Files
         entry: end-of-file-fixer
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         language: system
         types: [text]
         stages: [commit, push, manual]
@@ -54,15 +54,15 @@ repos:
       - id: reorder-python-imports
         name: Reorder python imports
         entry: reorder-python-imports
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         language: system
         types: [python]
-        args: ["--application-directories=.:services/{{cookiecutter.repo_name}}/src"]
+        args: ["--application-directories=.:src"]
 
       - id: trailing-whitespace
         name: Trim Trailing Whitespace
         entry: trailing-whitespace-fixer
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         language: system
         types: [text]
         stages: [commit, push, manual]
@@ -70,62 +70,62 @@ repos:
       - id: debug-statement-hook
         name: Check for debugger statements
         entry: debug-statement-hook
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         types: [python]
         language: system
 
       - id: check-merge-conflict
         name: Check for merge conflicts
         entry: check-merge-conflict
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         language: system
 
       - id: check-ast
         name: Check AST
         entry: check-ast
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         types: [python]
         language: system
 
       - id: check-case-conflict
         name: Check Case Conflict
         entry: check-case-conflict
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         types: [python]
         language: system
 
       - id: check-docstring-first
         name: Check Docstrings first
         entry: check-docstring-first
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         types: [python]
         language: system
 
       - id: check-shebang-scripts-are-executable
         name: Check Shebangs Executable
         entry: check-shebang-scripts-are-executable
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         types: [python]
         language: system
 
       - id: detect-private-key
         name: Check Private Keys
         entry: detect-private-key
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         types: [python]
         language: system
 
       - id: fix-encoding-pragma
         name: Fix encoding pragma
         entry: fix-encoding-pragma
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         types: [python]
         language: system
 
       - id: interrogate
         name: interrogate
         entry: interrogate -v
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         types: [python]
         exclude: tests/.*.py
         language: system
@@ -133,14 +133,14 @@ repos:
       - id: pyupgrade
         name: pyupgrade
         entry: pyupgrade
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         types: [python]
         language: system
 
       - id: flakehell
         name: flakehell
-        entry: bash -c 'cd services/{{cookiecutter.repo_name}} && flakehell lint ${@#*/*/}' --
-        files: "{{cookiecutter.repo_name}}/.*"
+        entry: bash -c 'cd src/{{cookiecutter.repo_name}} && flakehell lint ${@#*/*/}' --
+        files: ""
         language: system
         types: [python]
         require_serial: true
@@ -149,7 +149,7 @@ repos:
         name: inspectortiger
         description: "Inspects your code"
         entry: inspectortiger
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         language: system
         require_serial: true
         types: [python]
@@ -157,7 +157,7 @@ repos:
     rev: v2.3.0
     hooks:
       - id: prettier
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
 
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.5.1 # Use the ref you want to point at
@@ -166,7 +166,7 @@ repos:
         name: python-no-eval
         description: "A quick check for the `eval()` built-in function"
         entry: '\beval\('
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         language: pygrep
         types: [python]
 
@@ -174,7 +174,7 @@ repos:
         name: python-no-log-warn
         description: "A quick check for the deprecated `.warn()` method of python loggers"
         entry: '(?<!warnings)\.warn\('
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         language: pygrep
         types: [python]
 
@@ -182,6 +182,6 @@ repos:
         name: python-use-type-annotations not type comments
         description: "Enforce that python3.6+ type annotations are used instead of type comments"
         entry: "# type(?!: *ignore *($|#))"
-        files: "{{cookiecutter.repo_name}}/.*"
+        files: ""
         language: pygrep
         types: [python]
