@@ -24,5 +24,3 @@ RUN poetry install --no-root --no-dev
 COPY --chown=$USER:$USER src/ .
 
 ENV MODULE_NAME="{{cookiecutter.repo_name}}.main"
-
-

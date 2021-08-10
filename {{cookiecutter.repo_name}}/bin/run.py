@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 import logging
+
 import uvicorn
 
 if __name__ == "__main__":

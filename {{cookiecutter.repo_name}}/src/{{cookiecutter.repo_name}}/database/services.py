@@ -16,6 +16,7 @@ from .core import (
     get_db,
 )
 
+
 def common_parameters(
     db_session: orm.Session = Depends(get_db),
     page: int = 1,
@@ -37,4 +38,3 @@ def common_parameters(
         "sort_by": sort_by,
         "descending": descending,
     }
-

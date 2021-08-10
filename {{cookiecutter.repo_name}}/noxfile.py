@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 """Nox sessions."""
 import shutil
+import nox
 import sys
 from pathlib import Path
 from textwrap import dedent
 
-import nox
+
 
 try:
     from nox_poetry import Session
-    from nox_poetry import session
 except ImportError:
     message = f"""\
     Nox failed to import the 'nox-poetry' package.

@@ -26,7 +26,7 @@ def get_items(*, common: dict = Depends(common_parameters)):
     """
     # this the way to use the settings
     settings: Settings = get_settings(db_session=common["db_session"])
-    
+
     logger.info(f" this is the admin mail {settings.admin_mail}")
 
     return search_filter_sort_paginate(model="Item", **common)

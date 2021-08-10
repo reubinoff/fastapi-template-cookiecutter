@@ -1,7 +1,6 @@
-from typing import  Optional, List
+from typing import Optional, List
 
 from .models import ItemRead, ItemCreate, Item
-
 
 
 def get(*, db_session, item_id: int) -> Optional[Item]:
@@ -12,7 +11,6 @@ def get(*, db_session, item_id: int) -> Optional[Item]:
 def get_all(*, db_session) -> List[Optional[Item]]:
     """Returns all items."""
     return db_session.query(Item)
-
 
 
 def create(*, db_session, item_in: ItemCreate) -> Item:

@@ -25,10 +25,6 @@ def resolve_table_name(name):
 raise_attribute_error = object()
 
 
-
-
-
-
 def resolve_attr(obj, attr, default=None):
     """Attempts to access attr via dotted notation, returns none if attr does not exist."""
     try:
@@ -48,7 +44,6 @@ Base = declarative_base(cls=CustomBase)
 
 def get_db(request: Request):
     return request.state.db
-
 
 
 def get_model_name_by_tablename(table_fullname: str) -> str:

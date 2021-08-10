@@ -1,4 +1,3 @@
-
 from fastapi_versioning import VersionedFastAPI
 
 from fastapi import FastAPI
@@ -25,12 +24,13 @@ app = FastAPI(middleware=get_middlewares())
 # we add all API routes to the Web API framework
 app.include_router(api_router)
 
-app = VersionedFastAPI(app,
-    version_format='{major}',
-    prefix_format='/api/v{major}',
-    description='Greet users with a nice message',
+app = VersionedFastAPI(
+    app,
+    version_format="{major}",
+    prefix_format="/api/v{major}",
+    description="Greet users with a nice message",
     enable_latest=True,
-    middleware=get_middlewares()
+    middleware=get_middlewares(),
 )
 
 logger.info(f"Start the application: {configuration.app_name} running on env: {configuration.env}")

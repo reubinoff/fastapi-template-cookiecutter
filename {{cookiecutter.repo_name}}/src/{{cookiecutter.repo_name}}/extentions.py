@@ -1,4 +1,4 @@
-import logging 
+import logging
 
 import sentry_sdk
 from fastapi.logger import logger
@@ -31,5 +31,3 @@ def configure_extensions():
             environment=configuration.env,
             auto_enabling_integrations=False,
         )
- 
- 

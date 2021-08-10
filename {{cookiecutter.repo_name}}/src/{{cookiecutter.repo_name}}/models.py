@@ -1,15 +1,10 @@
 from pydantic import BaseModel, validator
 
 
-
 ########################## SQLAlchemy models ##########################
 
 
-
 #################################################################
-
-
-
 
 
 ########################## Pydantic models ##########################
@@ -19,7 +14,6 @@ class OurBase(BaseModel):
         validate_assignment = True
         arbitrary_types_allowed = True
         anystr_strip_whitespace = True
-
 
 
 #################################################################

@@ -30,9 +30,11 @@ class Item(Base):
 class ItemBase(OurBase):
     name: str
     description: Optional[str]
- 
+
+
 class ItemRead(ItemBase):
     id: Optional[int]
+
 
 class ItemCreate(ItemBase):
     pass

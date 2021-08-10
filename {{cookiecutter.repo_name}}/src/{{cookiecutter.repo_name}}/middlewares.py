@@ -11,14 +11,15 @@ from fastapi import Request, Response
 from {{cookiecutter.repo_name}}.api import api_router
 from {{cookiecutter.repo_name}}.database.core import engine, sessionmaker
 
+
 @functools.lru_cache()
 def get_middlewares() -> Optional[Sequence[Middleware]]:
     middlewares = [
         Middleware(BaseHTTPMiddleware, dispatch=db_session_middleware),
         Middleware(BaseHTTPMiddleware, dispatch=add_security_headers),
-        Middleware(SentryMiddleware)
+        Middleware(SentryMiddleware),
     ]
-    
+
     return middlewares
 
 
@@ -36,8 +37,8 @@ async def db_session_middleware(request: Request, call_next):
         request.state.db.close()
     return response
 
+
 async def add_security_headers(request: Request, call_next):
     response = await call_next(request)
     response.headers["Strict-Transport-Security"] = "max-age=31536000 ; includeSubDomains"
     return response
-
