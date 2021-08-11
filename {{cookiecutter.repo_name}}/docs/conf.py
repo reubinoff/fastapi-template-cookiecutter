@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 project = "{{cookiecutter.repo_name}}"
-author = "OwnBackup"
+author = "Moshe"
 copyright = f"{datetime.now().year}, {author}"
 extensions = ["sphinx.ext.autodoc", "sphinx.ext.napoleon", "sphinx_click", "sphinx_rtd_theme"]
 autodoc_typehints = "description"
